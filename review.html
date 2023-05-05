@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is my cafe</title>
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- custom css file link  -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;1,300;1,500&display=swap');
+
+
+        :root{
+  --red:#ff3838;
+}
+
+*{
+  font-family: 'Nunito', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition:all .2s linear;
+}
+
+*::selection{
+  background:var(--red);
+  color:#fff;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body{
+  background:#f7f7f7;
+}
+
+header{
+  position: fixed;
+  top:0; left: 0; right:0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:#fff;
+  padding:2rem 9%;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color:#666;
+}
+
+header .logo i{
+  padding-right: .5rem;
+  color:var(--red);
+}
+
+header .navbar a{
+  font-size: 2rem;
+  margin-left: 2rem;
+  color:#666;
+}
+
+header .navbar a:hover{
+  color:rgb(255, 255, 255);
+  background: red;
+}
+
+/* #menu-bar{
+  font-size: 2rem;
+  cursor: pointer;
+  color:#000;
+  border:.1rem solid #666;
+  border-radius: .3rem;
+  padding:.5rem 1.5rem;
+  display: none;
+}
+#menu-bar:hover{
+  color: white;
+  background-color: var(--red);
+} */
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height:4.5rem;
+    line-height: 4.5rem;
+    width:4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color:black;
+    border-radius: 50%;
+    background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover{
+    color:#fff;
+    background: var(--red);
+    transform: rotate(360deg);
+}
+header .icons #menu-bars{
+    display: none;
+}
+    .review .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.review .box-container .box{
+  text-align: center;
+  padding:2rem;
+  border:1rem solid #fff;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+  border-radius: .5rem;
+  flex:1 1 30rem;
+  background:#333;
+  margin-top: 6rem;
+}
+
+.review .box-container .box img{
+  height: 12rem;
+  width:12rem;
+  border-radius: 50%;
+  border:1rem solid #fff;
+  margin-top: -8rem;
+  object-fit: cover;
+}
+
+.review .box-container .box h3{
+  font-size: 2.5rem;
+  color:#fff;
+  padding:.5rem 0;
+}
+
+.review .box-container .box .stars i{
+  font-size: 2rem;
+  color:var(--red);
+  padding:.5rem 0;
+}
+
+.review .box-container .box p{
+  font-size: 1.5rem;
+  color:#eee;
+  padding:1rem 0;
+}
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  padding:1rem;
+  color:#666;
+}
+
+.heading span{
+  color:var(--red);
+}
+/* media query */
+@media(max-width:991px){
+
+html{
+  font-size: 55%;
+}
+
+header{
+  padding:2rem;
+}
+
+section{
+  padding:2rem;
+}
+
+}
+
+@media(max-width:768px){
+  
+  header .icons #menu-bars{
+  display: initial;
+}
+header .icons #menu-bars{
+  line-height: 1.5em;
+  /* border: .1rem solid black; */
+  padding: 1.5rem;
+}
+
+header .navbar{
+  position: absolute;
+  top:100%; left: 0; right:0;
+  background: #f7f7f7;
+  border-top: .1rem solid rgba(0,0,0,.1);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+header .navbar.active{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+header .navbar a{
+  margin: 1rem;
+  padding:1.5rem;
+  display: block;
+  border:.2rem solid rgba(0,0,0,.1);
+  border-left:.5rem solid var(--red);
+  background:#fff;
+}
+}
+@media(max-width:450px){
+
+html{
+  font-size: 50%;
+}
+
+.order .row form .inputBox input{
+  width:100%;
+}
+
+}
+
+
+</style>
+<body>
+   <!-- header section starts  -->
+
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>panda cafe</a>
+
+    <!-- <div id="menu-bar" class="fas fa-bars"></div> -->
+
+    <nav class="navbar">
+        <a href="final-project-1.html">home</a>
+        <a href="#speciality">speciality</a>
+        <a href="#popular">popular</a>
+        <a href="#gallery">gallery</a>
+        <a href="#review">review</a>
+        <a href="#order">order</a>
+    </nav>
+    <div class="icons">
+        <i  class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+ <!-- review section starts  -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br><br>
+<section class="review" id="review">
+    
+    <h1 class="heading"> <span> Our customers reviews</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.9JMPDzzaH2aqhYgTqnavoQHaIP&pid=Api&P=0" alt="">
+            <h3>irfan khatri</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>I liked this cafe, nice place to hangout with friends even we can celebrate bdae parties.. Dont forget to try the cooler drink.. It was very yummie. Service is also good
+            </p>
+        </div>
+        <div class="box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.cssKX-fMrjPQurAqCkPYLQAAAA&pid=Api&P=0" alt="">
+            <h3>vasim shaikh</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> Wanted to go to a cafe so found this place at khopat. Decent ambience not much at cafe feeling and the hotel by manage by only one person. </p>
+        </div>
+        <div class="box">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.5GQJVfZ89xCr09n2nDCrigHaHa&pid=Api&P=0" alt="">
+            <h3>ashish singh</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> One of theeee bestttttt cafe in thane....💓 ambience is pleasant and decent...😇😇staff is friendly and there service is quick....best place to celebrate birthdays or anniversary as they provide a separate place... it's worth spending money here!!!!💗🎂</p>
+        </div>
+        <div class="box">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.bNU4cvz03aaGl3GZbmzVLwHaHX&pid=Api&P=0" alt="">
+            <h3>sadik shaikh</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> A decent cafe. Usually not much crowded. Managed by just two people there. Menu is also not too big, but the food is good. Good for a quick bite.🍛🍨</p>
+        </div>
+        <div class="box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.9KC9YRMJVvFma3HQ1DyIPgHaJQ&pid=Api&P=0" alt="">
+            <h3>Rohit maurya</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> This cafe is huge and the ambience is vibrant. The food was good and the service thoughtful and prompt. I guess the action that made my view about the experience so delightful is that one of my family members was fasting which the lady manager noticed and got him a platter of fruits.</p>
+        </div>
+        <div class="box">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.BltPJNxVWvE3zktPkQfACAHaHa&pid=Api&P=0" alt="">
+            <h3> Aaradhana Rajbhar</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> there is no place like this anywer else where we can have fun n best food n staff is really the best..... service provided here is very fast ❤️❤️❤️❤️❤️ cheers to lotus the heart of jw Marriott</p>
+        </div>
+        <div class="box">
+            <img src="https://tse2.explicit.bing.net/th?id=OIP.s6WukswgRtZVTu4FODFdOgHaHQ&pid=Api&P=0" alt="">
+            <h3> pramod ahire</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> i am really happy to visit here this place is really amazing
+              staff over here is very polite and cute enough talking about food it's delicious
+              and ambience is beautiful n comfortable</p>
+        </div>
+        <div class="box">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.bYXx_eUPc7cFUWHbdpQSBAHaG3&pid=Api&P=0" alt="">
+            <h3>pratik jaiswal</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>I m just glad that i visited lotus cafe..i was just shocked to see the service so amazing it was..they take care of each and every guest nd the food was very delicious </p>
+        </div>
+        <div class="box">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.2ia1N2G2jypXceJPIHgsQQHaHU&pid=Api&P=0" alt="">
+            <h3>  abu yasir </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>its a simple place with good food and friendly service!The décor is tacky but the place has heart! I would recommend it to others for a good fast lunch option. </p>
+        </div>
+        <div class="box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.VPmcCoiwZDPgK_KvoCcTGAHaI_&pid=Api&P=0" alt="">
+            <h3>Swaleha shaikh</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> My food came fast and fresh and the chicken in my chicken chow mein was so tender and delicous. I would definatly recomend it as a must try. </p>
+        </div>
+        <div class="box">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.UfS3KEHEQUYVVDfg7Qy43wHaHa&pid=Api&P=0" alt="">
+            <h3> neha verma</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> Food was amazing, ambience was so appropriate that we all enjoyed our meal and staff was helpfull. Mainly staff was properly decorated to provide us the service. </p>
+        </div>
+        <div class="box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.V5fNw3XG2pjNvj4s9igYzwHaJ1&pid=Api&P=0" alt="">
+            <h3>vanshit </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> My food came fast and fresh and the chicken in my chicken chow mein was so tender and delicous. I would definatly recomend it as a must try. They are so nice and its a quiet atmosphere. they have lunch specials and a wide variety.</p>
+        </div>
+        <div class="box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.uye11fkSuO_Fs8ro72dPtQHaHa&pid=Api&P=0" alt="">
+            <h3> naina nishad </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>The taste of the food is addicting! Well prepared and served. Daily lunch buffet offers a great value for an abundant meal. Good family combination specials too</p>
+        </div>
+        <div class="box">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.6ebbE7EL8oe-Ue6IW6UW4QHaG_&pid=Api&P=0" alt="">
+            <h3>rohan prajapati</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p> Awesome food.. Best cafe ever visit. price of everything is resonable and environment is good. sound and ever thing is upto marks best place for visit</p>
+        </div>
+        <div class="box">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.EiBTqKVS43tOtnQC7bKSaQHaHc&pid=Api&P=0" alt="">
+            <h3> rajnish jaiswal</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Best cafe ever visit. price of everything is resonable and environment is good. sound and ever thing is upto marks best place for visit</p>
+        </div>
+        <div class="box">
+            <img src="https://tse2.explicit.bing.net/th?id=OIP.Dn7Ph1CN2ED67jDZDxV0NwHaII&pid=Api&P=0" alt="">
+            <h3> manish jaiswal</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>Awesome food.. Best cafe ever visit. price of everything is resonable and environment is good. sound and ever thing is upto marks best place for visit.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+</body>
+
+</html>

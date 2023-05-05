@@ -1,0 +1,528 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is my cafe</title>
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- custom css file link  -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;1,300;1,500&display=swap');
+
+        :root{
+  --red:#ff3838;
+}
+
+*{
+  font-family: 'Nunito', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition:all .2s linear;
+}
+
+*::selection{
+  background:var(--red);
+  color:#fff;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body{
+  background:#f7f7f7;
+}
+
+header{
+  position: fixed;
+  top:0; left: 0; right:0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:#fff;
+  padding:2rem 9%;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color:#666;
+}
+
+header .logo i{
+  padding-right: .5rem;
+  color:var(--red);
+}
+
+header .navbar a{
+  font-size: 2rem;
+  margin-left: 2rem;
+  color:#666;
+}
+
+header .navbar a:hover{
+  color:rgb(255, 255, 255);
+  background: red;
+}
+
+/* #menu-bar{
+  font-size: 2rem;
+  cursor: pointer;
+  color:#000;
+  border:.1rem solid #666;
+  border-radius: .3rem;
+  padding:.5rem 1.5rem;
+  display: none;
+}
+#menu-bar:hover{
+  color: white;
+  background-color: var(--red);
+} */
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height:4.5rem;
+    line-height: 4.5rem;
+    width:4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color:black;
+    border-radius: 50%;
+    background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover{
+    color:#fff;
+    background: var(--red);
+    transform: rotate(360deg);
+}
+header .icons #menu-bars{
+    display: none;
+}.btn{
+        display: inline-block;
+        padding:.8rem 3rem;
+        border:.2rem solid var(--red);
+        color:var(--red);
+        cursor: pointer;
+        font-size: 1.7rem;
+        border-radius: .5rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
+        margin-top: 1rem;
+    }
+    .btn::before{
+        content:'';
+        position: absolute;
+        top: 0; right: 0;
+        width: 0%;
+        height: 100%;
+        background: var(--red);  
+        transition: .3s linear;
+        z-index: -1;
+    }
+    .btn:hover::before{
+        width: 100%;
+        left: 0;
+
+    }
+
+
+
+
+.popular .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.popular .box-container .box{
+  padding:2rem;
+  background:#fff;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  border:.1rem solid rgba(0,0,0,.3);
+  border-radius: .5rem;
+  text-align: center;
+  flex:1 1 30rem;
+  position: relative;
+}
+
+.popular .box-container .box img{
+  height:25rem;
+  object-fit: cover;
+  width:100%;
+  border-radius: .5rem;
+}
+
+.popular .box-container .box .price{
+  position: absolute;
+  top:3rem; left:3rem;
+  background:var(--red);
+  color:#fff;
+  font-size: 2rem;
+  padding:.5rem 1rem;
+  border-radius: .5rem;
+}
+
+.popular .box-container .box h3{
+  color:#333;
+  font-size: 2.5rem;
+  padding-top: 1rem;
+}
+
+.popular .box-container .box .stars i{
+  color:gold;
+  font-size: 1.7rem;
+  padding:1rem .1rem;
+}
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  padding:1rem;
+  color:#666;
+}
+
+.heading span{
+  color:var(--red);
+}
+/* media query */
+@media(max-width:991px){
+
+html{
+  font-size: 55%;
+}
+
+header{
+  padding:2rem;
+}
+
+section{
+  padding:2rem;
+}
+
+}
+
+@media(max-width:768px){
+
+  header .icons #menu-bars{
+  display: initial;
+}
+header .icons #menu-bars{
+  line-height: 1.5em;
+  /* border: .1rem solid black; */
+  padding: 1.5rem;
+}
+
+header .navbar{
+  position: absolute;
+  top:100%; left: 0; right:0;
+  background: #f7f7f7;
+  border-top: .1rem solid rgba(0,0,0,.1);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+header .navbar.active{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+header .navbar a{
+  margin: 1rem;
+  padding:1.5rem;
+  display: block;
+  border:.2rem solid rgba(0,0,0,.1);
+  border-left:.5rem solid var(--red);
+  background:#fff;
+}
+}
+@media(max-width:450px){
+
+html{
+  font-size: 50%;
+}
+
+.order .row form .inputBox input{
+  width:100%;
+}
+
+}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- header section starts  -->
+
+    <header>
+
+      <a href="#" class="logo"><i class="fas fa-utensils"></i>panda cafe</a>
+  
+      <!-- <div id="menu-bar" class="fas fa-bars"></div> -->
+  
+      <nav class="navbar">
+          <a href="final-project-1.html">home</a>
+          <a href="#speciality">speciality</a>
+          <a href="#popular">popular</a>
+          <a href="#gallery">gallery</a>
+          <a href="#review">review</a>
+          <a href="#order">order</a>
+      </nav>
+      <div class="icons">
+          <i  class="fas fa-bars" id="menu-bars"></i>
+          <i class="fas fa-search" id="search-icon"></i>
+          <a href="#" class="fas fa-heart"></a>
+          <a href="#" class="fas fa-shopping-cart"></a>
+      </div>
+  
+  </header>
+
+
+<!-- header section ends -->
+
+    <!-- popular section start -->
+<section class="popular" id="popular">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="heading">tasty  <span> cakes</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span class="price"> ₹199  </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27195404/plum-cake.jpg" alt="">
+            <h3>Plum Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹199  </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27200135/Ferrero-Rocher-Cake.jpg" alt="">
+            <h3>Ferrero Rocher Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹199  </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27200436/Kitkat-cake.jpg" alt="">
+            <h3>Kitkat Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹199  </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234430/Mango-Cake.jpg" alt="">
+            <h3>Mango Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹299 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234513/Chocolate-Cake.jpg" alt="">
+            <h3> Chocolate Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹299 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234549/Brownie-Cake.jpg" alt="">
+            <h3>Brownie Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹299 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234629/Pineapple-Cake.jpg" alt="">
+            <h3>Pineapple Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹299 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234706/Rainbow-Cake.jpg" alt="">
+            <h3>Rainbow Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+       
+        <div class="box">
+            <span class="price"> ₹399 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234831/Chocolate-Truffle-Cake.jpg" alt="">
+            <h3>Chocolate Truffle Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹399 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27234913/Red-Velvet-Cake.jpg" alt="">
+            <h3> Red Velvet Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹399 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27235135/Black-Currant-Cake.jpg" alt="">
+            <h3>   Black Currant Cake </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹399 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27235231/White-Forest-Cake.jpg" alt="">
+            <h3>White Forest Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹499 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27235407/Butterscotch-Cake.jpg" alt="">
+            <h3>Butterscotch Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹499 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27235442/Vanilla-Cake.jpg" alt="">
+            <h3>Vanilla Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹499 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27235526/Strawberry-Cake.jpg" alt="">
+            <h3>Strawberry Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+        <div class="box">
+            <span class="price"> ₹499 </span>
+            <img src="https://static.halfcute.com/blog/wp-content/uploads/2021/05/27235604/Oreo-Cake.jpg" alt="">
+            <h3>Oreo Cake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="order.html" class="btn">order now</a>
+        </div>
+       
+
+    </div>
+
+</section>
+
+<!-- popular section ends -->
+
+
+
+</body>
+
+</html>
