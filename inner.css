@@ -646,7 +646,9 @@ section{
   /* section{
     padding:2rem;
   } */
-  
+  .ads{
+  overflow:hidden;
+  }
   .ads .ads-slider .slide .contentt span{
     font-size: 2rem;
   }
